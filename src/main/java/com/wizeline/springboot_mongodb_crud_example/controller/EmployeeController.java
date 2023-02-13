@@ -74,9 +74,8 @@ public class EmployeeController {
     throws ResourceNotFoundException {
         Employee employee = employeeRepository.findById(employeeId)
             .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
-
         employeeRepository.delete(employee);
-        Map < String, Boolean > response = new HashMap < > ();
+        Map < String, Boolean > response = new HashMap <> ();
         response.put("deleted", Boolean.TRUE);
         return response;
     }
